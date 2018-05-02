@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <title>Insert title here</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="/js/Student.js"></script>
+    <style type="text/css">
+    		*{
+    			margin: 0px;
+    			padding: 0px;
+    		}
+
+            .comma:empty {
+          			display: none;
+            }
+
+            .comma:not(:first-child):before {
+            content: ", ";
+            }
+            a:link, a:visited {
+			    background-color: #4CAF50;
+			    color: white;
+			    padding: 14px 25px;
+			    text-align: center;
+			    text-decoration: none;
+			    display: inline-block;
+			}
+			#students {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+#students td, #students th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+#students tr:nth-child(even){background-color: #f2f2f2;}
+
+#students tr:hover {background-color: #ddd;}
+
+#students th {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #4CAF50;
+    color: white;
+}
+a:link, a:visited {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+    </style>
+</head>
+<body ng-app="myApp"  ng-controller="myCtrl2">
+	<div class="container">
+	<h2>Chi Tiết Sinh Viên</h2>
+	<table class="table" id="students">
+        <tr>
+            <th>ID</th>
+            <th>Student Name</th>
+            <th>Student Address</th>
+        </tr>
+        <tr>
+            <td>{{students1.id}}</td>
+            <td>{{students1.name}}</td>
+            <td>{{students1.address}}</td>
+        </tr>
+    </table>
+    
+    <h4>Sinh viên {{students1.name}} đã đăng kí các khóa học sau: <span class= "comma" ng-repeat="x in size"> {{students2[x].coursename}} <a  class="btn btn-danger" href="" ng-click="deleteStudentCourse(students1.id,students2[x].courseid)"> Xóa </a></span></h4>
+    
+    <p>Add Course</p>
+
+    <form ng-submit="addCourseForStudent(stcourse)">
+        <input type="hidden" name="id" ng-model="id" ng-init="id=students1.id" >
+        <div class="col-xs-3">
+        <select class="form-control" name="courseid"  ng-model="courseid">
+        <option ng-repeat="course in courses"  ng-selected="courseid =course.courseid" ng-value="course.courseid">{{course.coursename}}</option>
+        </select>
+        </div>
+        <input class="btn btn-primary" type="submit" value="Add Course">
+    		<br>
+    		<a href="/index" id="">Trang chu</a>
+    </form>
+	
+
+    </div>
+		
+</body>
+</html>

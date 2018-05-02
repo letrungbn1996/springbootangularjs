@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <title>Course Detail</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script> 
+    <script src="/js/Course.js"></script>
+
+    <style type="text/css">
+    		*{
+    			margin: 0px;
+    			padding: 0px;
+    		}
+
+            .comma:empty {
+          			display: none;
+            }
+
+            .comma:not(:first-child):before {
+            content: ", ";
+            }
+            #course {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+#course td, #course th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+#course tr:nth-child(even){background-color: #f2f2f2;}
+
+#course tr:hover {background-color: #ddd;}
+
+#course th {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #4CAF50;
+    color: white;
+}
+a:link, a:visited {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+    </style>
+</head>
+<body ng-app="myApp"  ng-controller="myCtrl3">
+	<div class="container">
+	<h2>Chi Tiết Khoa Hoc</h2>
+	<table class="table" id="course">
+        <tr>
+            <th>ID</th>
+            <th>Course Name</th>
+            
+        </tr>
+        <tr >
+            <td>{{courses1.courseid}}</td>
+            <td>{{courses1.coursename}}</td>
+        </tr>
+    </table>
+	<h4> Danh sach sinh vien cua khoa hoc</h4>
+	
+	<ul class="list-group">
+	<li class="list-group-item list-group-item-success" ng-repeat="x in size" >
+	{{courses2[x].name}}
+	
+	</li>
+	</ul>
+	<a href="/viewCourse" id="">Trang chu</a>
+    </div>
+	
+    
+</body>
+</html>

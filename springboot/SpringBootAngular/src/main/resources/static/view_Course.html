@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org"
+    xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8">
+<title>	Khóa học</title>
+<style >
+#students {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+#students td, #students th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+#students tr:nth-child(even){background-color: #f2f2f2;}
+
+#students tr:hover {background-color: #ddd;}
+
+#students th {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #4CAF50;
+    color: white;
+}
+a:link, a:visited {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>   
+<script src="../js/Course.js"></script>
+</head>
+
+<body >
+	<h1>Danh sách khoá học</h1>
+	<a href="/add_course" class="add-button">Thêm khoá học</a>
+	
+	<br>
+	<p></p>
+	<table border="1" id="course">
+            <thead>
+            <tr>
+                <th>Mã khóa học</th>
+                <th>Tên khoá học</th>
+                <th>Số sinh viên học</th>
+                <th>Hành động</th>
+
+            </tr>
+            </thead>
+            <tbody  ng-app="myApp" ng-controller="myCtrl3">
+            <tr  ng-repeat="course in courses">
+                <td> {{course.courseid}}</td>
+                <td> {{course.coursename}}</td>
+                <td  ng-init="init(course.courseid)" >{{number[course.courseid]}}</td>
+                
+                
+                <td>
+                	<a href="/course_detail" ng-click="viewCourse(course.courseid)" class="view-button">View</a>
+                	<a href="/edit_course" ng-click="viewCourse(course.courseid)" class="edit-button">Edit</a>
+                	<a href="" ng-click="deleteCourse(course.courseid)" class="delete-button">Delete</a>
+                	                
+                </td>
+            </tr>
+            </tbody>
+        </table>
+</body>
+</html>
+</body>
+</html>

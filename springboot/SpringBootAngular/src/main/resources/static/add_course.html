@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org"
+    xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8">
+<title>Khoá học</title>
+<style>
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+a:link, a:visited {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="/js/Course.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl3">
+	<h1>Thêm khoá học</h1>
+	<div>
+	<form name="myForm2" ng-submit="addCourse(course)" >
+		<table>
+			<tr>
+				<td>Tên Khoá Học</td>
+				<td><input type="text" placeholder="Ten khoa hoc" name="coursename" ng-model="coursename"/></td>
+			</tr>
+			
+			
+			<tr>
+				<td><button>Save</button></td>
+			</tr>
+		</table>
+		<a href="/viewCourse" id="">Trang chu</a>
+		
+		
+		
+	</form>
+	</div>
+</body>
+</html>

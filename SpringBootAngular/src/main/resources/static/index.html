@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org"
+    xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8">
+<title>Sinh vien</title>
+<style >
+#students {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+#students td, #students th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+#students tr:nth-child(even){background-color: #f2f2f2;}
+
+#students tr:hover {background-color: #ddd;}
+
+#students th {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #4CAF50;
+    color: white;
+}
+a:link, a:visited {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>   
+<script src="../js/Student.js"></script>
+</head>
+
+<body >
+	<h1>Danh sách sinh vien</h1>
+	<a href="/add_student" class="add-button">Thêm sinh viên</a>
+	<a class="btn btn-link" href="/viewCourse">Danh Sách Khóa Học</a>
+	<br>
+	<p></p>
+	<table border="1" id="students">
+            <thead>
+            <tr>
+                <th>Mã sinh viên</th>
+                <th>Tên sinh viên</th>
+                <th>Địa chỉ</th>
+                <th>Hành động</th>
+
+            </tr>
+            </thead>
+            <tbody  ng-app="myApp" ng-controller="myCtrl">
+            <tr  ng-repeat="student in students">
+                <td> {{student.id}}</td>
+                <td> {{student.name}}</td>
+                <td> {{student.address}}</td>
+                
+                <td>
+                	<a href="/viewStudent" ng-click="viewStudent(student.id)" class="view-button">View</a>
+                	<a href="/edit_student" ng-click="viewStudent(student.id)" class="edit-button">Edit</a>
+                	<a href="" ng-click="deleteStudent(student.id)" class="delete-button">Delete</a>
+                	                
+                </td>
+            </tr>
+            </tbody>
+        </table>
+</body>
+</html>
+</body>
+</html>
